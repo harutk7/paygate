@@ -1,0 +1,6 @@
+@PaymentGateway.Backoffice.Api_HostAddress = http://localhost:5081
+
+GET {{PaymentGateway.Backoffice.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/components/protectedroute.tsx","./src/layouts/portallayout.tsx","./src/pages/apikeys.tsx","./src/pages/authcallback.tsx","./src/pages/billing.tsx","./src/pages/dashboard.tsx","./src/pages/settings.tsx","./src/pages/transactions.tsx","./src/pages/webhooks.tsx","./src/stores/auth.ts"],"version":"5.9.3"}
