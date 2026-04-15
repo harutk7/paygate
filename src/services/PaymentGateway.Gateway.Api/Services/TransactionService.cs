@@ -296,7 +296,8 @@ public class TransactionService
         var apiLoginId = _configuration["AuthorizeNet:ApiLoginId"];
         var transactionKey = _configuration["AuthorizeNet:TransactionKey"];
 
-        if (string.IsNullOrEmpty(apiLoginId) || string.IsNullOrEmpty(transactionKey))
+        if (string.IsNullOrEmpty(apiLoginId) || string.IsNullOrEmpty(transactionKey) ||
+            apiLoginId == "YOUR_SANDBOX_LOGIN_ID" || transactionKey == "YOUR_SANDBOX_TRANSACTION_KEY")
         {
             _logger.LogWarning("Authorize.net credentials not configured, simulating successful charge");
             return Task.FromResult<(bool, string?, string?)>((true, $"sim_{Guid.NewGuid():N}", null));
@@ -359,7 +360,8 @@ public class TransactionService
         var apiLoginId = _configuration["AuthorizeNet:ApiLoginId"];
         var transactionKey = _configuration["AuthorizeNet:TransactionKey"];
 
-        if (string.IsNullOrEmpty(apiLoginId) || string.IsNullOrEmpty(transactionKey))
+        if (string.IsNullOrEmpty(apiLoginId) || string.IsNullOrEmpty(transactionKey) ||
+            apiLoginId == "YOUR_SANDBOX_LOGIN_ID" || transactionKey == "YOUR_SANDBOX_TRANSACTION_KEY")
         {
             _logger.LogWarning("Authorize.net credentials not configured, simulating successful refund");
             return Task.FromResult<(bool, string?, string?)>((true, $"sim_ref_{Guid.NewGuid():N}", null));

@@ -152,6 +152,10 @@ export interface CancelSubscriptionRequest {
   cancelAtPeriodEnd: boolean;
 }
 
+export interface ChangePlanRequest {
+  planId: string;
+}
+
 // ── Billing Types ──
 
 export interface PaymentMethodDto {
@@ -210,8 +214,11 @@ export interface CreateApiKeyRequest {
 }
 
 export interface CreateApiKeyResponse {
-  apiKey: ApiKeyDto;
-  secretKey: string;
+  id: string;
+  name: string;
+  key: string;
+  keyPrefix: string;
+  createdAt: string;
 }
 
 // ── Transaction Types ──
