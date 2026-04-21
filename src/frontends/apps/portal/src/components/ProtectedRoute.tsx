@@ -19,7 +19,7 @@ export function ProtectedRoute() {
   }
 
   if (!isAuthenticated) {
-    window.location.href = 'http://localhost:18050/login';
+    window.location.href = 'http://84.247.177.146:30210/login';
     return null;
   }
 

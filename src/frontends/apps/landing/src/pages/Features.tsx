@@ -114,7 +114,7 @@ export function Features() {
       </section>
 
       {/* Feature Sections */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 sm:space-y-28">
           {features.map((feature, idx) => (
             <div
@@ -125,16 +125,16 @@ export function Features() {
             >
               {/* Text */}
               <div className="flex-1">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-50 text-primary-600 rounded-xl mb-6">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-50 dark:bg-primary-900/30 text-primary-600 rounded-xl mb-6">
                   {feature.icon}
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                   {feature.title}
                 </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">{feature.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">{feature.description}</p>
                 <ul className="space-y-3">
                   {feature.details.map((detail) => (
-                    <li key={detail} className="flex items-center gap-3 text-sm text-gray-700">
+                    <li key={detail} className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">
                       <svg className="w-5 h-5 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -147,20 +147,20 @@ export function Features() {
               {/* Visual placeholder */}
               <div className="flex-1 w-full">
                 <div className={`rounded-2xl p-8 sm:p-12 ${
-                  idx % 2 === 0 ? 'bg-gradient-to-br from-primary-50 to-secondary-50' : 'bg-gradient-to-br from-gray-50 to-primary-50'
+                  idx % 2 === 0 ? 'bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20' : 'bg-gradient-to-br from-gray-50 to-primary-50 dark:from-gray-800 dark:to-primary-900/20'
                 }`}>
-                  <div className="bg-white rounded-xl shadow-sm p-6 space-y-4">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 space-y-4">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-3 h-3 rounded-full bg-red-400" />
                       <div className="w-3 h-3 rounded-full bg-yellow-400" />
                       <div className="w-3 h-3 rounded-full bg-green-400" />
                     </div>
                     <div className="space-y-3">
-                      <div className="h-3 bg-gray-100 rounded w-3/4" />
-                      <div className="h-3 bg-primary-100 rounded w-1/2" />
-                      <div className="h-3 bg-gray-100 rounded w-5/6" />
-                      <div className="h-3 bg-primary-50 rounded w-2/3" />
-                      <div className="h-3 bg-gray-100 rounded w-3/5" />
+                      <div className="h-3 bg-gray-100 dark:bg-gray-700 rounded w-3/4" />
+                      <div className="h-3 bg-primary-100 dark:bg-primary-900/30 rounded w-1/2" />
+                      <div className="h-3 bg-gray-100 dark:bg-gray-700 rounded w-5/6" />
+                      <div className="h-3 bg-primary-50 dark:bg-primary-900/20 rounded w-2/3" />
+                      <div className="h-3 bg-gray-100 dark:bg-gray-700 rounded w-3/5" />
                     </div>
                   </div>
                 </div>
@@ -171,12 +171,12 @@ export function Features() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Ready to integrate?
           </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto">
             Start building with PayGate today. Our documentation and SDKs make integration fast
             and straightforward.
           </p>
@@ -189,7 +189,34 @@ export function Features() {
             </a>
             <a
               href="#"
-              className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            >
+              Read Documentation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            Ready to integrate?
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto">
+            Start building with PayGate today. Our documentation and SDKs make integration fast
+            and straightforward.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="/register"
+              className="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+            >
+              Get Started Free
+            </a>
+            <a
+              href="#"
+              className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
               Read Documentation
             </a>

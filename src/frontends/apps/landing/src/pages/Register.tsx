@@ -106,7 +106,7 @@ export function Register() {
         refreshToken: response.refreshToken,
       });
       setTimeout(() => {
-        window.location.href = `http://localhost:18051/auth/callback?${params.toString()}`;
+        window.location.href = `http://84.247.177.146:30211/auth/callback?${params.toString()}`;
       }, 1500);
     } catch (err) {
       const error = err as AxiosError<ErrorResponse & { error?: string }>;
@@ -120,15 +120,15 @@ export function Register() {
 
   if (success) {
     return (
-      <div className="min-h-[calc(100vh-12rem)] flex items-center justify-center py-12 px-4">
+      <div className="min-h-[calc(100vh-12rem)] flex items-center justify-center py-12 px-4 bg-white dark:bg-gray-900">
         <div className="w-full max-w-md text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full mb-6">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Account Created!</h2>
-          <p className="text-gray-600 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Account Created!</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             Your account has been created successfully. Redirecting to login...
           </p>
           <Link to="/login" className="text-primary-600 font-medium hover:text-primary-700">
@@ -140,11 +140,11 @@ export function Register() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-12rem)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[calc(100vh-12rem)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="w-full max-w-lg">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create your account</h1>
-          <p className="text-gray-600">Get started with PayGate in minutes</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Create your account</h1>
+          <p className="text-gray-600 dark:text-gray-300">Get started with PayGate in minutes</p>
         </div>
 
         {/* Step Indicator */}
@@ -158,7 +158,7 @@ export function Register() {
                       ? 'bg-primary-600 text-white'
                       : idx === currentStep
                         ? 'bg-primary-600 text-white'
-                        : 'bg-gray-200 text-gray-500'
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
                   }`}
                 >
                   {idx < currentStep ? (
@@ -169,12 +169,12 @@ export function Register() {
                     idx + 1
                   )}
                 </div>
-                <span className="text-xs mt-1.5 text-gray-500 hidden sm:block">{label}</span>
+                <span className="text-xs mt-1.5 text-gray-500 dark:text-gray-400 hidden sm:block">{label}</span>
               </div>
               {idx < steps.length - 1 && (
                 <div
                   className={`w-12 sm:w-20 h-0.5 mx-2 ${
-                    idx < currentStep ? 'bg-primary-600' : 'bg-gray-200'
+                    idx < currentStep ? 'bg-primary-600' : 'bg-gray-200 dark:bg-gray-700'
                   }`}
                 />
               )}
@@ -182,9 +182,9 @@ export function Register() {
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
           {serverError && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
+            <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 text-sm rounded-lg">
               {serverError}
             </div>
           )}
@@ -193,17 +193,17 @@ export function Register() {
           {currentStep === 0 && (
             <form onSubmit={step1Form.handleSubmit(handleStep1)} className="space-y-5">
               <div>
-                <label htmlFor="organizationName" className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label htmlFor="organizationName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                   Organization Name
                 </label>
                 <input
                   id="organizationName"
                   type="text"
                   {...step1Form.register('organizationName')}
-                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
                     step1Form.formState.errors.organizationName
-                      ? 'border-red-300 bg-red-50'
-                      : 'border-gray-300'
+                      ? 'border-red-300 bg-red-50 dark:bg-red-900/20'
+                      : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="Acme Inc."
                 />
@@ -227,17 +227,17 @@ export function Register() {
             <form onSubmit={step2Form.handleSubmit(handleStep2)} className="space-y-5">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1.5">
+                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                     First Name
                   </label>
                   <input
                     id="firstName"
                     type="text"
                     {...step2Form.register('firstName')}
-                    className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                    className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
                       step2Form.formState.errors.firstName
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-gray-300'
+                        ? 'border-red-300 bg-red-50 dark:bg-red-900/20'
+                        : 'border-gray-300 dark:border-gray-600'
                     }`}
                     placeholder="John"
                   />
@@ -248,17 +248,17 @@ export function Register() {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1.5">
+                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                     Last Name
                   </label>
                   <input
                     id="lastName"
                     type="text"
                     {...step2Form.register('lastName')}
-                    className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                    className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
                       step2Form.formState.errors.lastName
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-gray-300'
+                        ? 'border-red-300 bg-red-50 dark:bg-red-900/20'
+                        : 'border-gray-300 dark:border-gray-600'
                     }`}
                     placeholder="Doe"
                   />
@@ -270,7 +270,7 @@ export function Register() {
                 </div>
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                   Email address
                 </label>
                 <input
@@ -278,10 +278,10 @@ export function Register() {
                   type="email"
                   autoComplete="email"
                   {...step2Form.register('email')}
-                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
                     step2Form.formState.errors.email
-                      ? 'border-red-300 bg-red-50'
-                      : 'border-gray-300'
+                      ? 'border-red-300 bg-red-50 dark:bg-red-900/20'
+                      : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="john@acme.com"
                 />
@@ -292,7 +292,7 @@ export function Register() {
                 )}
               </div>
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                   Password
                 </label>
                 <input
@@ -300,10 +300,10 @@ export function Register() {
                   type="password"
                   autoComplete="new-password"
                   {...step2Form.register('password')}
-                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
                     step2Form.formState.errors.password
-                      ? 'border-red-300 bg-red-50'
-                      : 'border-gray-300'
+                      ? 'border-red-300 bg-red-50 dark:bg-red-900/20'
+                      : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="Min. 8 characters"
                 />
@@ -314,7 +314,7 @@ export function Register() {
                 )}
               </div>
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                   Confirm Password
                 </label>
                 <input
@@ -322,10 +322,10 @@ export function Register() {
                   type="password"
                   autoComplete="new-password"
                   {...step2Form.register('confirmPassword')}
-                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                  className={`w-full border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
                     step2Form.formState.errors.confirmPassword
-                      ? 'border-red-300 bg-red-50'
-                      : 'border-gray-300'
+                      ? 'border-red-300 bg-red-50 dark:bg-red-900/20'
+                      : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="Re-enter your password"
                 />
@@ -339,7 +339,7 @@ export function Register() {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(0)}
-                  className="flex-1 border border-gray-300 text-gray-700 py-2.5 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                  className="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 py-2.5 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 >
                   Back
                 </button>
@@ -357,24 +357,24 @@ export function Register() {
           {currentStep === 2 && step1Data && step2Data && (
             <div className="space-y-6">
               <div>
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
                   Business Information
                 </h3>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-sm text-gray-700">
+                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
                     <span className="font-medium">Organization:</span> {step1Data.organizationName}
                   </p>
                 </div>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
                   Admin Account
                 </h3>
-                <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-                  <p className="text-sm text-gray-700">
+                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 space-y-2">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
                     <span className="font-medium">Name:</span> {step2Data.firstName} {step2Data.lastName}
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
                     <span className="font-medium">Email:</span> {step2Data.email}
                   </p>
                 </div>
@@ -384,9 +384,9 @@ export function Register() {
                   type="checkbox"
                   checked={agreedToTerms}
                   onChange={(e) => setAgreedToTerms(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                  className="mt-0.5 h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary-600 focus:ring-primary-500"
                 />
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-gray-600 dark:text-gray-300">
                   I agree to the{' '}
                   <a href="#" className="text-primary-600 hover:text-primary-700">
                     Terms of Service
@@ -401,7 +401,7 @@ export function Register() {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="flex-1 border border-gray-300 text-gray-700 py-2.5 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                  className="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 py-2.5 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 >
                   Back
                 </button>
@@ -418,7 +418,7 @@ export function Register() {
           )}
         </div>
 
-        <p className="text-center text-sm text-gray-600 mt-6">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">
           Already have an account?{' '}
           <Link to="/login" className="text-primary-600 font-medium hover:text-primary-700">
             Sign In

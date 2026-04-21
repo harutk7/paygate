@@ -139,12 +139,12 @@ export function Pricing() {
           {loading ? (
             <div className="grid md:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-2xl shadow-lg p-8 animate-pulse">
-                  <div className="h-6 bg-gray-200 rounded w-1/3 mb-4" />
-                  <div className="h-10 bg-gray-200 rounded w-1/2 mb-6" />
+                <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 animate-pulse">
+                  <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mb-4" />
+                  <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-6" />
                   <div className="space-y-3">
                     {[1, 2, 3, 4].map((j) => (
-                      <div key={j} className="h-4 bg-gray-200 rounded w-full" />
+                      <div key={j} className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full" />
                     ))}
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export function Pricing() {
                 return (
                   <div
                     key={plan.id}
-                    className={`relative bg-white rounded-2xl p-8 transition-all duration-300 hover:shadow-xl ${
+                    className={`relative bg-white dark:bg-gray-800 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl ${
                       isPopular
                         ? 'ring-2 ring-primary-600 shadow-xl scale-[1.02]'
                         : 'shadow-lg hover:scale-[1.01]'
@@ -170,19 +170,19 @@ export function Pricing() {
                         </span>
                       </div>
                     )}
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{plan.name}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{plan.name}</h3>
                     {plan.description && (
-                      <p className="text-sm text-gray-500 mb-6">{plan.description}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">{plan.description}</p>
                     )}
                     <div className="mb-6">
-                      <span className="text-4xl font-bold text-gray-900">
+                      <span className="text-4xl font-bold text-gray-900 dark:text-white">
                         ${plan.priceMonthly ?? plan.monthlyPrice}
                       </span>
-                      <span className="text-gray-500">/mo</span>
+                      <span className="text-gray-500 dark:text-gray-400">/mo</span>
                     </div>
                     <ul className="space-y-3 mb-8">
                       {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3 text-sm text-gray-600">
+                        <li key={feature} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
                           <svg className="w-5 h-5 text-primary-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
@@ -190,7 +190,7 @@ export function Pricing() {
                         </li>
                       ))}
                     </ul>
-                    <div className="text-xs text-gray-400 mb-4 space-y-1">
+                    <div className="text-xs text-gray-400 dark:text-gray-500 mb-4 space-y-1">
                       <p>Transaction limit: {plan.transactionLimit.toLocaleString()}/mo</p>
                       <p>Rate limit: {plan.rateLimit.toLocaleString()} req/min</p>
                     </div>
@@ -199,7 +199,7 @@ export function Pricing() {
                       className={`block text-center py-3 rounded-lg font-semibold transition-colors ${
                         isPopular
                           ? 'bg-primary-600 text-white hover:bg-primary-700'
-                          : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600'
                       }`}
                     >
                       Start Free Trial
@@ -213,16 +213,16 @@ export function Pricing() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 sm:py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{faq.q}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{faq.q}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

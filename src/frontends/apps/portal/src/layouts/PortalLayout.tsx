@@ -43,7 +43,7 @@ export function PortalLayout() {
 
   const handleLogout = async () => {
     await logout();
-    window.location.href = 'http://localhost:18050/login';
+    window.location.href = 'http://84.247.177.146:30210/login';
   };
 
   const currentPage = breadcrumbMap[location.pathname] || 'Dashboard';
